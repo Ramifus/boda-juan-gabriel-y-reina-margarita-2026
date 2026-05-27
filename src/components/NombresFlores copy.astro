@@ -199,43 +199,40 @@ const FECHA_BODA = "20 de junio 2026";
     </div>
   </div>
 
-  <!-- Indicador de scroll: texto izquierda -->
-  <p
-    id="scroll-indicator"
-    class="absolute bottom-7 right-[calc(50%+1.25rem)] z-[10] text-white text-base drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)] pointer-events-none animate-[fade-in_1.5s_ease-out_2.5s_both] transition-opacity duration-700 whitespace-nowrap"
-  >
-    Desliza abajo
-  </p>
-
-  <!-- Indicador de scroll: flechas centradas -->
+  <!-- Indicador de scroll -->
   <div
-    id="scroll-arrows"
-    class="absolute bottom-6 left-1/2 -translate-x-1/2 z-[10] flex flex-col items-center -space-y-2 pointer-events-none animate-[fade-in_1.5s_ease-out_2.5s_both] transition-opacity duration-700"
+    id="scroll-indicator"
+    class="absolute bottom-6 left-1/2 -translate-x-1/2 z-[10] flex flex-col items-center gap-2 pointer-events-none animate-[fade-in_1.5s_ease-out_2.5s_both] transition-opacity duration-700"
   >
-    <svg
-      class="w-6 h-6 text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] animate-[chevron-flow_1.8s_ease-in-out_infinite]"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-    </svg>
-    <svg
-      class="w-6 h-6 text-white/65 animate-[chevron-flow_1.8s_ease-in-out_infinite_0.18s]"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-    </svg>
-    <svg
-      class="w-6 h-6 text-white/30 animate-[chevron-flow_1.8s_ease-in-out_infinite_0.36s]"
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-    >
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
-    </svg>
+    <p class="font-charm text-white text-base tracking-[0.18em] drop-shadow-[0_2px_8px_rgba(0,0,0,0.7)]">
+      Desliza abajo
+    </p>
+    <div class="flex flex-col items-center -space-y-2">
+      <svg
+        class="w-6 h-6 text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)] animate-[chevron-flow_1.8s_ease-in-out_infinite]"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+      </svg>
+      <svg
+        class="w-6 h-6 text-white/65 animate-[chevron-flow_1.8s_ease-in-out_infinite_0.18s]"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+      </svg>
+      <svg
+        class="w-6 h-6 text-white/30 animate-[chevron-flow_1.8s_ease-in-out_infinite_0.36s]"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
   </div>
 
   <!-- 🎵 BOTÓN FLOTANTE DE MÚSICA -->
@@ -526,13 +523,11 @@ const FECHA_BODA = "20 de junio 2026";
 
   // Ocultar indicador de scroll al comenzar a desplazar
   const scrollIndicator = document.getElementById("scroll-indicator");
-  const scrollArrows = document.getElementById("scroll-arrows");
   window.addEventListener(
     "scroll",
     () => {
-      if (window.scrollY > 40) {
-        if (scrollIndicator) scrollIndicator.style.opacity = "0";
-        if (scrollArrows) scrollArrows.style.opacity = "0";
+      if (window.scrollY > 40 && scrollIndicator) {
+        scrollIndicator.style.opacity = "0";
       }
     },
     { passive: true },
